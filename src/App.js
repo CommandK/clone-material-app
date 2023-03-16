@@ -1,24 +1,34 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { Button, Container, Typography } from "@mui/material";
+import { styled } from "@mui/system";
+
+const StyledContainer = styled(Container)(({ theme }) => ({
+  display: "flex",
+  flexDirection: "column",
+  justifyContent: "center",
+  alignItems: "center",
+  minHeight: "100vh",
+  backgroundColor: theme.palette.grey[100],
+}));
+
+const StyledButton = styled(Button)(({ theme }) => ({
+  marginTop: theme.spacing(2),
+}));
 
 function App() {
+  const handleClick = () => {
+    alert("Hello, Material-UI!");
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <StyledContainer maxWidth="sm">
+      <Typography variant="h4" component="h1">
+        My React 18 Material-UI App
+      </Typography>
+      <StyledButton variant="contained" color="primary" onClick={handleClick}>
+        Click me!
+      </StyledButton>
+    </StyledContainer>
   );
 }
 
